@@ -1,0 +1,36 @@
+# +-------+
+# | Color |
+# +-------+
+
+# Menus
+
+Colorset 1 RootTransparent buffer, fg white, bg black, hi black, sh rgb:4C/4C/4C, tint black 30
+Colorset 2 fg white, bg rgb:00/55/DD 40
+#Colorset 2 fg white, bg black, hi black
+
+# Pager
+
+Colorset 3 RootTransparent, tint black 30
+Colorset 4 RootTransparent, tint rgb:00/99/FF 20
+Colorset 5 RootTransparent, tint rgb:00/99/FF 10
+
+# Borders and window title bar
+
+Colorset 6 RootTransparent buffer, tint rgb:00/99/FF 70
+Colorset 7 RootTransparent buffer, tint rgb:00/66/FF 40
+Colorset 60 RootTransparent buffer, tint rgb:00/99/FF 70
+Colorset 70 RootTransparent buffer, tint rgb:00/66/FF 40
+
+# Title text (fg) and button color (bg)
+# 80 获得焦点
+# 90 失去焦点
+
+Colorset 8 RootTransparent buffer, fg white, bg #1c5572, Tint cyan 15, bgTint cyan 15, IconAlpha 70
+Colorset 9 RootTransparent buffer, fg black, bg #969696, Tint blue 15, bgTint blue 5, IconAlpha 70
+Colorset 80 RootTransparent buffer, fg #f0f9fc, bg #6699ff, Tint  cyan 15, bgTint cyan 15, IconAlpha 70
+Colorset 90 RootTransparent buffer, fg #666666, bg #777777, Tint  black 15 , bgTint black 15, IconAlpha 70
+
+# Icons Alpha
+
+Colorset 10 IconAlpha 70
+Colorset 11 IconAlpha 70

@@ -1,0 +1,75 @@
+# +----------+
+# | Hot Keys |
+# +----------+
+ 
+## Mouse
+ 
+Mouse 1   1   A   CloseWindow
+Mouse 1   3   A   Maximize
+Mouse 1   5   A   Thumbnail	
+Mouse 1   2   A   WindowShade
+ 
+Mouse 1   A   M   MoveWindow
+Mouse 3   W   M   Resize
+ 
+Mouse 1   I   A   Iconify
+Mouse 3   R   A   WindowList
+Mouse 1   R   A   Menu Rootmenu Nop
+ 
+## Keyboard
+ 
+# Pager Control
+ 
+Key Right   A   M   GoToPage +1p +0p
+Key Left    A   M	GoToPage -1p +0p
+Key Up      A   M   GoToPage +0p -1p
+Key Down    A   M   GoToPage +0p +1p
+ 
+# Windows Control
+ 
+Key k       A   M   Close
+Key m       A   M   Maximize
+Key i       A   M   Thumbnail
+Key o       A   M   WindowShade
+Key l       A   M   Move
+Key j       A   M   Resize
+Key u       A   M   MoveToLower
+Key t       A   M   StayOnTop
+ 
+# Audio Control
+
+Key Home    A   C   Exec exec amixer set Master on 	
+Key Page_Up A   C	Exec exec amixer set Master 0.5%+
+Key Page_Down A C	Exec exec amixer set Master 0.5%-
+Key End     A   C   Exec exec amixer set Master off
+ 
+# Global Control
+ 
+Key k       A   SM	Close ()
+Key i       A   SM	All (*) Thumbnail
+Key l       A   SM	All (*,!Fvwm*) AnimatedMove 10 10
+Key r       A   SM	ResetAll
+ 
+# System
+ 
+Key Return  A   CM  PipeRead "sleep 1 && xset dpms force off"
+Key m       A   CM	PipeRead "chmod 777 /sys/power/state && echo -n mem >/sys/power/state"
+Key s       A   CM	Exec exec halt
+Key r       A   CM	Exec exec reboot
+Key n       A   CM	Restart
+Key d       A   CM	Exec exec echo 3 >/proc/sys/vm/drop_caches
+Key b       A   CM	Exec exec xset s off
+ 
+# Screenshot
+
+Key Print   A   A   Exec exec xwd -root | display
+Key Print   A   M   Exec exec xwd -id $[w.id] | display
+Key Print   A   CM  Exec exec ffmpeg -vcodec mpeg4 -b 1000 -r 10 -g 300 -vd x11:0,0 -s 1280x800 /ramdisk/screen.avi
+
+# Startup App
+ 
+Key F1      A   A   OpenApp Term +442p +215p "$[Term]"
+Key F2      A   A   OpenApp Chromium +50p +50p "$[chromium]"
+Key F3      A   A   OpenApp Firefox +50p +50p "$[firefox]"
+Key F4      A   A   OpenApp irssi +450p +150p "$[irssi]"
+Key F6      A   A   Window-Rearrange-Two-Column

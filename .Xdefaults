@@ -1,0 +1,60 @@
+Xcursor.theme: Azenis
+xft.dpi:96
+
+## xterm
+
+xterm*borderWidth: 2
+xterm*background:black
+XTerm*foreground:#138c00
+xterm*borderColor:green 
+xterm*cursorColor:green
+xterm*pointerColor: green
+xterm*MultiScroll: on
+xterm*fontDoublesize:true
+xterm*ScrollBar: off
+xterm*saveLines: 1024
+xterm*faceName:DejaVu Sans Mono:pixelsize=11.5
+xterm*faceNameDoublesize:simsun:pixelsize=11.5
+xterm*cursorBlink:on
+xterm*urlLauncher:firefox
+
+## urxvt
+
+/* color and font */
+
+URxvt*termName: xterm-256color
+Rxvt.inheritPixmap: true
+Rxvt.tintCddolor: white
+Rxvt.shading: 80
+Rxvt.transparency:255
+
+/* Rxvt*cursorColor: #FFA500
+Rxvt*cursorColor: #779922
+Rxvt.foreground:#FFA500
+Rxvt.foreground:#779922
+Rxvt.font:xft:SimSun:size=11
+*/
+
+Rxvt*cursorColor: #00ccff
+Rxvt.foreground:#00ccff
+Rxvt.depth:32
+Rxvt.preeditType:Root
+Rxvt.background:[70]black
+/*Rxvt.font:xft:DejaVu\ Sans\ Mono\ for\ Powerline:pixelsize=12*/
+Rxvt.font:xft:DejaVu Sans Mono for Powerline:pixelsize=12
+
+
+/* url */
+
+Rxvt.urlLauncher:chromium
+Rxvt.matcher.button:1
+Rxvt.perl-ext-common:matcher
+
+/* scrollbar */
+
+Rxvt*scrollBar: False
+
+/* cursor */
+
+Rxvt.cursorBlink:True
+Rxvt.saveLines:3000

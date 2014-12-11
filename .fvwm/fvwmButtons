@@ -1,0 +1,48 @@
+# +-------------+
+# | FvwmButtons |
+# +-------------+
+
+Colorset 13 fg #3366dd, bg #c6c3c6, RootTransparent, Tint #efebef 65
+DestroyModuleConfig FvwmButtons: *
+*FvwmButtons: Columns 32
+*FvwmButtons: Font "Shadow=1 1 SE:xft:Bitstream Vera Sans Mono:style=Roman:size=10"
+*FvwmButtons: Colorset 13
+*FvwmButtons: Frame 1
+*FvwmButtons: Padding 2 2
+*FvwmButtons: Rows 80
+*FvwmButtons: (Size 1x80, Back #dedbde, Frame 1, Action (Mouse 1) `Nop`)
+*FvwmButtons: (Title (Side) " Rxvt", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `Exec exec rxvt`)
+*FvwmButtons: (Title (Side) " Rox", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `Exec exec rox`)
+*FvwmButtons: (Title (Side) " Gvim", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `Exec exec gvim -geom 115x46`)
+*FvwmButtons: (Title (Side) " Firefox", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `Exec exec firefox -new-window`)
+*FvwmButtons: (Title (Side) " Irssi", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `Exec exec urxvt -title irssi  -e screen proxychains irssi`)
+*FvwmButtons: (Title (Side) " Pan", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `Exec exec pan`)
+*FvwmButtons: (Title (Side) " Skype", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `Exec exec skype`)
+*FvwmButtons: (Title (Side) " Amule", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `Exec exec amulegui`)
+*FvwmButtons: (Title (Side) " Xmms", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `Exec exec xmms`)
+*FvwmButtons: (Title (Side) " Mplayer", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `Exec exec gmplayer`)
+*FvwmButtons: (Title (Side) " Geeqie", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `Exec exec geeqie`)
+*FvwmButtons: (Size 22x1, Frame 0, Back #c6c3c6, Action (Mouse 1) `Nop`)
+*FvwmButtons: (Title (Side) " Gftp", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `Exec exec gftp`)
+*FvwmButtons: (Title (Side) " Vbox", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `Exec exec VirtualBox`)
+*FvwmButtons: (Title (Side) " Gimp", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `Exec exec gimp`)
+*FvwmButtons: (Title (Side) " Calc", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `Exec exec extcalc`)
+*FvwmButtons: (Title (Side) " Gnuplot", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `Exec exec rxvt -e gnuplot`)
+*FvwmButtons: (Title (Side) " Xfractint", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `Exec exec rxvt -e xfractint`)
+*FvwmButtons: (Size 22x1, Frame 0, Back #c6c3c6, Action (Mouse 1) `Nop`)
+*FvwmButtons: (Title (Side) " Run...", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `Module FvwmConsole -g 40x1+420-400 -terminal urxvt +sb`)
+*FvwmButtons: (Title (Side) " XKill", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `Exec exec xkill`)
+*FvwmButtons: (Title (Side) " Magnifier", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `Exec exec xmag`)
+*FvwmButtons: (Title (Side) " ScreenShot", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `Exec exec xwd -frame | display`)
+*FvwmButtons: (Title (Side) " Desktop", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `All (AcceptsFocus CurrentPage !Iconic !Shaded) Thumbnail`)
+*FvwmButtons: (Title (Side) " Configure...", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `Module FvwmScript FvwmScript-ScreenSetup`)
+*FvwmButtons: (Size 22x1, Frame 0, Back #c6c3c6, Action (Mouse 1) `Nop`)
+*FvwmButtons: (Title (Side) " Away", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `Exec exec xscreensaver-command --lock`)
+*FvwmButtons: (Title (Side) " Reboot", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `Exec exec reboot`)
+*FvwmButtons: (Title (Side) " ShutDown", Left, Back #dedbde, Size 22x2, Action (Mouse 1) `Exec exec halt`)
+*FvwmButtons: (Size 22x1, Frame 0, Back #c6c3c6, Action (Mouse 1) `Nop`)
+*FvwmButtons: (Size 11x5, Swallow wmcpuload, 'Exec exec wmcpuload -bw -lc rgb:5d/dd/ff')
+*FvwmButtons: (Size 11x5, Swallow wmmemload, 'Exec exec wmmemload -bw -lc rgb:5d/dd/ff')
+*FvwmButtons: (Size 22x2, Frame 0, Back #c6c3c6, Action (Mouse 1) `Nop`)
+#*FvwmButtons: (Size 22x8, Swallow "FvwmPager" "FvwmPager 0 0")
+*FvwmButtons: (Size 22x1, Frame 0, Back #c6c3c6, Action (Mouse 1) `Nop`)

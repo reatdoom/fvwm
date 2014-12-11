@@ -1,0 +1,72 @@
+# +-------+
+# | Style |
+# +-------+
+
+Style *             Colorset 80, HilightColorset 80, BorderWidth 0, HandleWidth 3
+Style *             TileCascadePlacement
+Style *             MouseFocusClickRaises
+#Style *	            IconBox 1000x1000+30+120, iconGrid 15 15, IconFill t l, IconBackgroundRelief 0
+Style *	            IconBox 1000x80+30-30, iconGrid 15 15, IconFill t l, IconBackgroundRelief 0
+Style *             IconTitle, IconTitleColorset 1, HilightIconTitleColorset 1, IconTitleRelief 0
+#Style *             IconFont "xft:mintsstrong", IndexedIconName
+Style *             IconFont "xft:HeiTi SC:size=10:style=bold", IndexedIconName
+#Style * 	    	font "xft:WenQuanYi Bitmap Song:size=10:style=bold:encoding=iso10646-1"
+Style * 	    	font "xft:Heiti SC:size=12:style=bold:encoding=iso10646-1"
+Style *			    RaiseTransient, LowerTransient, StackTransientParent
+Style "Fvwm*"	    Notitle,Sticky,WindowListskip,	BorderWidth 0, CirculateSkip,CirculateSkipIcon
+Style FvwmButtons   NoTitle, StaysOnTop, Sticky, WindowListSkip, CirculateSkipIcon, CirculateSkip
+Style FvwmButtons   HandleWidth 1, NeverFocus
+Style "xmms"		Notitle
+Style "*Chromium"	Notitle
+#Style "MPlayer"		Notitle
+#Style "urxvt"		TitleAtLeft
+Style "irssi"		Title,HandleWidth 2
+Style "xpad"		Notitle, Sticky
+Style "log"         Notitle, Sticky, StaysOnBottom, WindowListSkip, NeverFocus, HandleWidth 0
+Style "kiba-dock"	Notitle, HandleWidth 0
+Style "T?"          Notitle 
+
+## Border Style 
+
+BorderStyle         -- Flat
+BorderStyle         Active ColorSet 6 -- Flat
+BorderStyle         Inactive ColorSet 7 -- Flat
+
+## TitleBar Style
+
+TitleStyle          Active Colorset 60 -- Flat
+TitleStyle          Inactive Colorset 70 -- Flat
+
+## Title Botton Style
+
+ButtonStyle         Reset
+ButtonStyle         All -- Flat
+ButtonStyle         All -- UseTitleStyle
+AddButtonStyle All Vector 2 1x1@4 1x1@4
+AddButtonStyle 1 20  30x30@1 35x30@1 35x35@1 30x35@1 30x30@1 65x30@4 70x30@1 70x35@1 65x35@1 65x30@1 30x65@4 35x65@1 35x70@1 30x70@1 30x65@1 65x65@4 70x65@1 70x70@1 65x70@1 65x65@1
+AddButtonStyle 3 15  30x30@1 35x30@1 35x35@1 30x35@1 30x30@1 65x30@4 70x30@1 70x35@1 65x35@1 65x30@1 30x65@4 35x65@1 35x70@1 30x70@1 30x65@1
+AddButtonStyle 5 15  65x30@1 70x30@1 70x35@1 65x35@1 65x30@1 30x65@4 35x65@1 35x70@1 30x70@1 30x65@1 65x65@4 70x65@1 70x70@1 65x70@1 65x65@1
+AddButtonStyle 2 12  30x30@1 30x70@1 35x70@1 35x30@1 45x30@4 45x70@1 50x70@1 50x30@1 65x30@4 65x70@1 70x70@1 70x30@1
+
+## Menu Style
+
+# MenuStyle * Font "xft:Zero Threes:style=Regular:size=9"
+MenuStyle * Font "xft:Caviar Dreams:style=Bold:size=10"
+MenuStyle * MenuColorset 1, ActiveColorset 2
+MenuStyle * \
+	TrianglesSolid, \
+	BorderWidth 1, \
+	HilightBack, \
+	Hilight3DOff, \
+	SeparatorsLong, \
+	ItemFormat "%10.40l%.10>", \
+	PopupOffset -1 100, \
+	VerticalItemSpacing 5 5, \
+	DoubleClickTime 0, \
+	PopupDelayed, \
+	PopupDelay 160, \
+	Animation
+
+## FvwmConsole
+ 
+Style "FvwmConsole" HandleWidth 1, StaysOnTop

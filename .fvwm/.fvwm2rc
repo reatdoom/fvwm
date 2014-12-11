@@ -1,0 +1,77 @@
+#  +----------------------------------+
+#  |   File:   fvwm2rc                |
+#  |   Author: reatdoom               |
+#  |   Email:  reatdoom(at)gmail.com  |
+#  |   Update: 2013/11/20             |
+#  +----------------------------------+
+
+# +--------------+
+# |  Read files  |
+# +--------------+
+
+Read fvwmColor
+Read fvwmStyle
+Read fvwmHotkey
+Read fvwmMenu
+Read fvwmFunc
+
+Read fvwmButtons
+Read fvwmPager
+
+# +-----------------+
+# | Global Setting  |
+# +-----------------+
+ 
+SetEnv fvwm_tmp /dev/shm/
+SetEnv fvwm_wallpaper ~/.fvwm/theme/wallpaper/
+SetEnv fvwm_sound ~/.fvwm/theme/sounds/stereo
+ 
+# The Number of Pages
+
+DesktopSize 4x1
+
+# Default Color
+
+DefaultColors green black
+OpaqueMoveSize 100
+
+# Workplace Size
+
+# EwmhBaseStruts 1 135 1 115
+
+# Power of Change Page
+
+EdgeResistance 10000 0
+EdgeScroll 0 0
+
+# Close the Geometry when Move & Resize
+
+HideGeometryWindow Move Resize
+  
+# +-------------------------+
+# | Start and Quit Function |
+# +-------------------------+
+ 
+DestroyFunc StartFunction
+AddToFunc StartFunction
+	+ I Module FvwmEvent
+	+ I Module FvwmAnimate
+#    + I Module FvwmButtons -g 100x630+10+70
+    + I Module FvwmPager 
+	+ I All (Iconic) ReThumbnail
+#	+ I Test (Init) Exec urxvt -title log -geometry 60x5+11+20 +sb -ip -fn xft:clean +depth -e tail -n 5 -f /var/log/messages
+    + I Module FvwmAuto 0 -menter AutoHideEnter
+ 
+DestroyFunc InitFunction
+AddToFunc InitFunction
+    + I Exec exec ogg123 $[fvwm_sound]/desktop-login.ogg
+	+ I Exec exec feh --bg-scale $[fvwm_wallpaper]/wallpaper.png
+	+ I Exec exec conky
+	+ I Exec exec fcitx
+	+ I Exec exec xcompmgr
+    + I AutoHideEnter
+ 
+DestroyFunc ExitFunction
+AddToFunc ExitFunction
+    + I Exec exec ogg123 $[fvwm_sound]/desktop-logout.ogg
+	+ I All (xscreensaver) close

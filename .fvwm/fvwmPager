@@ -1,0 +1,21 @@
+# +-----------+  
+# | FvwmPager |  
+# +-----------+ 
+
+DestroyModuleConfig FvwmPager: *
+*fvwmPager: font none
+*fvwmPager: Noseparators
+*FvwmPager: Colorset * 3 
+*fvwmPager: WindowColorsets 4 5
+*FvwmPager: SmallFont 5x8
+*FvwmPager: Balloons All
+*FvwmPager: BalloonFont "xft:Heiti SC"
+*FvwmPager: BalloonYOffset +2
+*FvwmPager: BalloonBorderWidth 1
+*FvwmPager: UseSkipList
+*FvwmPager: MoveThreshold 3
+*FvwmPager: SolidSeparators
+*FvwmPager: WindowLabelFormat ""
+*FvwmPager: WindowBorderWidth 1
+*FvwmPager:Geometry 256x36-0-0
+Style FvwmPager HandleWidth 0, StaysOnBottom, Sticky, !Title

@@ -1,0 +1,62 @@
+# +------+
+# | Menu |
+# +------+
+
+## RootMenu
+
+DestroyMenu RootMenu
+AddToMenu RootMenu "Root Menu" Title
+    +   "Terminal"      Exec exec urxvt +sb  -title 'Terminal'
+    +   "Xfe"           Exec exec xfe
+    +   ""              Nop
+    +   "Internet"      Popup MenuInternet
+    +   "Utility"       Popup MenuUtility
+    +   "VM"            Popup MenuVm
+    +   "System"        Popup MenuSystem
+    +   ""              Nop
+    +   "fvwm"          Popup MenuFvwm
+    +   "exit"          Menu MenuExit
+
+DestroyMenu MenuInternet
+AddToMenu MenuInternet
+    +   "firefox"       Exec exec firefox
+    +   "chrome"        Exec exec chromium
+    +   "irssi"         Exec exec urxvt -title irssi  -e screen proxychains irssi
+    +   "skype"         Exec exec skype
+
+# Multimedia
+DestroyMenu MenuMultimedia
+AddToMenu MenuMultimedia
+    +   "xmms"          Exec exec xmms
+    +   "gmplayer"      Exec exec gmplayer
+
+DestroyMenu MenuUtility
+AddToMenu MenuUtility
+    +   "virtualbox"    Exec exec VirtualBox
+    +   "gnuplot"       Exec exec urxvt -e gnuplot
+
+DestroyMenu MenuVm
+AddToMenu MenuVm
+    +   "XP"           Exec exec virtualbox --startvm XP
+    +   "Server"         Exec exec virtualbox --startvm Server
+
+DestroyMenu MenuSystem
+AddToMenu MenuSystem
+    +   "ScreenShot"    Exec exec xwd -frame | display
+    +   "lock"          Exec exec xscreensaver-command -lock
+    +   "close Screen"  Exec exec xset dpms force off
+
+DestroyMenu MenuFvwm
+AddToMenu MenuFvwm
+#   +   "Xcompmgr"      Exec exec xcompmgr -Ss -n -Cc -fF -I-10 -O-10 -D1 -t-3 -l-4 -r4
+    +   "Conky"         Exec exec conky
+    +   "Xcompmgr"      Exec exec xcompmgr
+    +   "MenuFA"        Popup MenuFvwmAnimate
+    +   "FvwmConsole"   Module FvwmConsole -g 50x4+420-0 -terminal urxvt +sb
+    +   "Restart"       Restart
+	
+AddToMenu MenuExit "Exit?" 	Title
+    +   "Exit fvwm"     Quit
+    +   "Suspend"       Exec exec suspend
+    +   "Reboot"        Exec exec reboot
+    +   "Shutdown"      Exec exec halt

@@ -1,0 +1,137 @@
+# +----------+ 
+# | Function |
+# +----------+
+
+#
+# Action: I = Immediately; C = Click; M = Move; H = Hold
+# 
+# Command: Exec, PipeRead, Module
+#
+# Windows behaviour: Close/Destroy/Delet, Iconify, Maximize, WindowShade, Raise, \
+# Focuse, Resize, Move, AnimatedMove, MoveToPage
+#
+# Windows status: Iconic/!Iconic, Shaded/!Shaded, Raised, Maximized, etc.
+#
+# Condition test: Test(EnvIsSet,Init/Restart/Exit,EdgeHasPointer/EdgeIsActive direction,Ture/False,F/W/R/E/I file,), \
+# testRC(Match/0,!Match/Nomatch/1), KeepRC
+#
+
+
+## Thumbnail
+
+DestroyModuleConfig FvwmEvent:*
+*FvwmEvent:deiconify DeThumbnail
+
+DestroyFunc Thumbnail
+AddToFunc Thumbnail
+	+ I Raise
+	+ I SetEnv Icon-$[w.id] $[w.iconfile]
+	+ I ThisWindow (!Shaded Iconifiable !Iconic) PipeRead \
+      "xwd -silent -id $[w.id] | convert -scale 150  -border 1x1 \
+       -bordercolor black xwd:- png:$[fvwm_tmp]/icon.tmp.$[w.id].png \
+      && echo Nop"
+	+ I TestRc (Match) Test (f $[fvwm_icon]/$[w.iconfile], f $[fvwm_tmp]/icon.tmp.$[w.id].png) \
+      PipeRead "composite -geometry +2+4 \
+      $[fvwm_icon]/$[w.iconfile] $[fvwm_tmp]/icon.tmp.$[w.id].png \
+      $[fvwm_tmp]/icon.tmp.$[w.id].png && \
+      echo WindowStyle IconOverride, Icon $[fvwm_tmp]/icon.tmp.$[w.id].png || echo Nop"
+	+ I TestRc (NoMatch) WindowStyle IconOverride, Icon $[fvwm_tmp]/icon.tmp.$[w.id].png
+    + I Exec ogg123 $[fvwm_sound]/button-pressed.ogg
+	+ I Iconify
+
+DestroyFunc DeThumbnail
+AddToFunc DeThumbnail
+	+ I PipeRead "echo WindowStyle Icon \\$\\[Icon-$[w.id]\\]"
+	+ I UnsetEnv Icon-$[w.id]
+	+ I Exec rm -f $[fvwm_tmp]/icon.tmp.$[w.id].png
+
+DestroyFunc ReThumbnail
+AddToFunc   ReThumbnail
+	+ I Iconify
+	+ I Thumbnail
+
+## AutoHide
+
+DestroyFunc AutoHide
+AddToFunc AutoHide
+	+ I ThisWindow ($0) Deschedule $[w.id]
+	+ I ThisWindow ($0) KeepRc ThisWindow (shaded) WindowShade off
+	+ I TestRc (!Match) All ($0, !shaded) AutoHideHide $1 $2
+
+DestroyFunc AutoHideHide
+AddToFunc AutoHideHide
+	+ I Schedule $0 $[w.id] WindowShade $1
+	+ I Schedule $0 $[w.id] Deschedule $[w.id]
+
+DestroyFunc AutoHideEnter
+AddToFunc AutoHideEnter
+	+ I AutoHide FvwmPager 500 S
+#+ I AutoHide FvwmButtons 500 W
+
+DestroyFunc AutoHidePlacementHandler
+AddToFunc AutoHidePlacementHandler
+	+ I Schedule 1000 THisWindow ("FvwmButtons") WindowShade W
+	+ I Schedule 1000 THisWindow ("FvwmPager") WindowShade W
+DestroyModuleConfig FvwmAuto: *
+
+## AutoTransset
+
+#DestroyFunc Transset
+#AddToFunc Transset
+#	+ I ThisWindow (Firefox) Exec exec transset -i $[w.id] 0.9
+#	+ I TestRC (!Match) Schedule 500 ThisWindow (*,!mplayer) Exec exec transset -i $[w.id] 0.75
+#	
+#AddToFunc StartFunction I Module FvwmAuto 300 -menter Transset 
+
+## Screenshot
+
+DestroyFunc RootScreenShot
+AddToFunc RootScreenShot
+	+ I PipeRead "xwd -silent -root | display"
+
+DestroyFunc WinScreenShot
+AddToFunc WinScreenShot
+	+ I Raise
+	+ I ThisWindow(!iconic,!shaded) PipeRead "xwd -silent -frame -id $[w.id] | display"
+
+## Some functionality
+
+DestroyFunc CloseWindow
+AddToFunc CloseWindow
+	+ C Close
+	+ M Nop
+
+DestroyFunc MoveWindow
+AddToFunc MoveWindow
+	+ H Move
+
+## OpenApp
+
+DestroyFunc OpenApp
+AddToFunc OpenApp
+	+ I All ($0,iconic) Thumbnail
+	+ I All ($0) raise
+	+ I TestRC (!Match) KeepRC $3
+	+ I TestRC (!Match) Schedule 1500 All ($0) AnimatedMove $1 $2 
+	+ I All ($0) AnimatedMove $1 $2 
+	+ I All ($0) focus
+
+DestroyFunc Window-Rearrange-Two-Column
+AddToFunc Window-Rearrange-Two-Column
+    + I All (CurrentPage,!Fvwm*, !conky, !trayer) WindowShade off
+    + I Piperead 'echo FvwmRearrange -tile -animate -resize -mn 2 -m 0p 0p `expr $[vp.width] - 0`p `expr $[vp.height] - 0`p'
+
+# AppName
+SetEnv Term "Exec exec urxvt -title Term -geometry 126x33+442+215 +sb"
+SetEnv firefox "Exec exec firefox"
+SetEnv chromium "Exec exec chromium"
+SetEnv irssi "Exec exec urxvt -title irssi +sb -e screen proxychains irssi"
+SetEnv amule "Exec exec amule"
+SetEnv xmms "Exec exec xmms"
+SetEnv gmplayer "Exec exec gmplayer"
+SetEnv vim "Exec exec urxvt -title vim -e vim"
+SetEnv xpdf "Exec exec xpdf"
+SetEnv xpad "Exec exec xpad"
+SetEnv rox "Exec exec rox"
+SetEnv sdcv "Exec exec urxvt -title sdcv +sb -geometry 60x10 -e sdcv"
+
